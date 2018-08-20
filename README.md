@@ -29,12 +29,47 @@ Then copy file ob-erlang.el to "~/.emacs.d/site-packages"
 
 ### Additional Code Block Parameters
 
+"-compile(export_all)." will be insert into code if no "-export([])." line
+
 #### :module
 
 Specify module name for erlang code.
 It will be omitted if the code contained "-module(ModuleName)."
 
+```org
+#+BEGIN_SRC erlang :module tryerlang
+start() ->
+	io:format("hello world").
+#+END_SRC
+
+#+RESULTS:
+: hello world
+```
+
 #### :start
 
 Specify entry function to eval erlang code.
 Erlang's default entry function is start/0.
+
+```org
+#+BEGIN_SRC erlang :module notstart :start main
+main() ->
+	io:format("entry is main/0").
+#+END_SRC
+
+#+RESULTS:
+: entry is main/0
+```
+
+#### with out :module and :start
+
+```org
+#+BEGIN_SRC erlang
+-module(sayhello).
+start() ->
+	io:format("say hello").
+#+END_SRC
+
+#+RESULTS:
+: say hello
+```
