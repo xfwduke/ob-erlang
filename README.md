@@ -29,7 +29,7 @@ Then copy file ob-erlang.el to `~/.emacs.d/site-packages`
 
 ### Additional Code Block Parameters
 
-`-compile(export_all).` will be auto inserted into code if no `-export([]).` line during compile phase.
+`-compile(export_all).` will be auto inserted into code during compile phase if no `-export([]).` line in the code.
 
 #### :module
 
