@@ -16,7 +16,7 @@ Add ob-erlang.el to your load path. Example:
 ```elisp
 (add-to-list 'load-path "~/.emacs.d/site-packages")
 ```
-Then copy file ob-erlang.el to "~/.emacs.d/site-packages"
+Then copy file ob-erlang.el to `~/.emacs.d/site-packages`
 
 ### Configure Babel
 
@@ -29,12 +29,12 @@ Then copy file ob-erlang.el to "~/.emacs.d/site-packages"
 
 ### Additional Code Block Parameters
 
-"-compile(export_all)." will be insert into code if no "-export([])." line
+`-compile(export_all).` will be auto inserted into code if no `-export([]).` line during compile phase.
 
 #### :module
 
 Specify module name for erlang code.
-It will be omitted if the code contained "-module(ModuleName)."
+It will be omitted if the code contained `-module(ModuleName).`
 
 ```org
 #+BEGIN_SRC erlang :module tryerlang

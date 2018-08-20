@@ -3,6 +3,7 @@
 ;; Copyright (C) 2018  Free Software Foundation, Inc.
 ;; Author: xfwduke
 ;; Keywords: literate programing, reproducible research
+;; Homepage: https://github.com/xfwduke/ob-erlang
 
 ;; This file is part of GNU Emacs.
 
