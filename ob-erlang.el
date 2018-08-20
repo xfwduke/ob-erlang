@@ -73,7 +73,7 @@
       (cdr (assoc :rowname-names params)) (cdr (assoc :rownames params))))))
 
 (defun append-export-all (code-body)
-  "Append -comple(export_all).  after -module line if CODE-BODY do not has export line."
+  "Append -compile(export_all).  after -module line if CODE-BODY do not has export line."
   (if (export-p code-body)
       code-body
     (string-join (mapcar
