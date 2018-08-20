@@ -2,7 +2,7 @@
 Org-Babel support for evaluating erlang source code.
 
 ## Usage
-Clone repository and put ob-erlang.el in your Emacs load path.
+Clone repository and put `ob-erlang.el` in your Emacs load path.
 
 ### Clone
 
@@ -11,12 +11,12 @@ git clone https://github.com/xfwduke/ob-erlang
 ```
 
 ### Put in path
-Add ob-erlang.el to your load path. Example:
+Add `ob-erlang.el` to your load path. Example:
 
 ```elisp
 (add-to-list 'load-path "~/.emacs.d/site-packages")
 ```
-Then copy file ob-erlang.el to `~/.emacs.d/site-packages`
+Then copy file `ob-erlang.el` to `~/.emacs.d/site-packages`
 
 ### Configure Babel
 
