@@ -55,15 +55,13 @@
 	 ;; entry function must be specified to execute erlang code
 	 ;; the default entry function is start
 	 (start-fun (cdr (assoc ':start params)))
-	 (cookie (cdr (assoc ':cookie params)))
-	 (name (cdr (assoc ':name params)))
 	 (src-file (expand-file-name  (concat module-name ".erl") temp-dir))
 	 (results (progn (with-temp-file src-file (insert
 						   (append-export-all full-body)))
 	 		 (org-babel-eval
 	 		  (concat "erlc -o " temp-dir " " src-file) "")
 	 		 (org-babel-eval
-	 		  (concat "erl -noshell " " -name " name " -setcookie " cookie " -pa " temp-dir " -s " module-name " " start-fun " -s init stop") ""))))
+	 		  (concat "erl -noshell -pa " temp-dir " -s " module-name " " start-fun " -s init stop") ""))))
     
     (delete-directory temp-dir t)
     

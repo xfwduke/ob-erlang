@@ -73,3 +73,11 @@ start() ->
 #+RESULTS:
 : say hello
 ```
+
+#### :name
+
+Specify erlang node long-name
+
+#### :cookie
+
+Specify cookie for -setcookie
