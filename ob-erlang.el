@@ -40,18 +40,20 @@
   "Execute BODY with PARAMS."
   (let* ((full-body (org-babel-expand-body:generic body params))
 	 (temp-dir (make-temp-file "org-babel-erlang" t))
-	 ;; erlang must defined a module and has same name with source code file
-	 ;; so use module-name as source code filename
-	 ;; if code has -module line, use it
-	 ;; otherwise use parameter :module of code block
+	 ;; erlang must define a module whose name matches the source
+	 ;; code file name.  The module name from which the source
+	 ;; code file name is derived is taken from the sources when a
+	 ;; -module line is present, else it is taken from the :module
+	 ;; parameter of the code block, if present.  If none are
+	 ;; defined, the module name "m" is used, because a nil module
+	 ;; name is invalid in Erlang.
 	 (module-name (if (string-match-p "^-module[[:blank:]]*([[:blank:]]*[[:alnum:]]+[[:blank:]]*)" full-body)
 			  (progn
 			    (string-match "^-module[[:blank:]]*([[:blank:]]*\\([[:alnum:]]+\\)[[:blank:]]*)" full-body)
 			    (match-string 1 full-body))
-			(progn
-			  (defvar module-name (cdr (assoc ':module params)))
-			  (setq full-body (concat "-module(" module-name ").\n" full-body))
-			  module-name)))
+			(let ((m (or (cdr (assoc ':module params)) "m")))
+			  (setq full-body (concat "-module(" m ").\n" full-body))
+			  m)))
 	 ;; entry function must be specified to execute erlang code
 	 ;; the default entry function is start
 	 (start-fun (cdr (assoc ':start params)))
