@@ -46,6 +46,9 @@ start() ->
 : hello world
 ```
 
+If no module name is specified by any of the above means, then a
+default module name of `m` is used.
+
 #### :start
 
 Specify entry function to eval erlang code.
